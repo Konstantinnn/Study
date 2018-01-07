@@ -26,11 +26,11 @@ namespace TestMVCAjax.Controllers
         {
             IEnumerable<Programmer> programmers = new []
             {
-                new Programmer {Id = 1, Name = "Konstantin" },
+                new Programmer {Id = 1, Name = "Lily" },
                 new Programmer {Id = 2, Name = "Alves" },
                 new Programmer {Id = 3, Name = "Scott" },
                 new Programmer {Id = 4, Name = "Tray" },
-                new Programmer {Id = 5, Name = "Vasya" },    
+                new Programmer {Id = 5, Name = "Collins" },    
             };
 
             return View("_TableProgrammer",filter == null ? programmers : programmers.Where(x => x.Name.Contains(filter)));
