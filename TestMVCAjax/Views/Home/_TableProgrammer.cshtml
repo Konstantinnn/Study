@@ -1,0 +1,11 @@
+﻿@using TestMVCAjax.Models
+@model IEnumerable<Programmer>
+
+@foreach (Programmer programmer in Model)
+{
+    <tr>
+        <td>@programmer.Id</td>
+        <td>@programmer.Name</td>
+    </tr>
+
+}

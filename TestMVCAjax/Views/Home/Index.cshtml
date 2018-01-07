@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = null;
+    AjaxOptions ajax = new AjaxOptions
+    {
+        UpdateTargetId = "programmersList",
+        Url = Url.Action("GetProgrammers")
+    };
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Programmer</title>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        @using (Ajax.BeginForm(ajax))
+        {   
+            <div class="row" id="find">
+                <div class="col-sm-3 input-group">
+                    <input type="text" name="filter" value="@ViewBag.filter" class="form-control" placeholder="Enter searching symbols" />
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default">Find</button>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="row" id="programmersTable">
+                <div class="col-sm-8">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <td>ID</td>
+                                <td>Name</td>
+                            </tr>
+                        </thead>
+                        <tbody id="programmersList">
+                            @Html.Action("GetProgrammers")
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        }
+    </div>
+</body>
+</html>
